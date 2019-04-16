@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://www.davieyu.cn">
-  <title>Davie个人博客</title>
+  <title>Get、Post、Put等请求及数据返回格式 | Davie个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Davie个人博客">
-<meta property="og:url" content="http://www.davieyu.cn/index.html">
+  <meta name="description" content="@author：Davie版权所有：北京千锋互联科技有限公司 数据请求方式的分类所有的项目中使用的请求都遵循HTTP协议标准，HTTP协议经过了1.0和1.1两个版本的发展。   HTTP1.0定义了三种请求方法： GET, POST 和 HEAD方法。 HTTP1.1新增了五种请求方法：OPTIONS, PUT, DELETE, TRACE 和 CONNECT 方法。  因此，我们可以说，HTT">
+<meta name="keywords" content="HTTP请求 Golang开发 GoWeb">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Get、Post、Put等请求及数据返回格式">
+<meta property="og:url" content="http://www.davieyu.cn/2019/04/16/Get、Post、Put等请求及数据返回格式/index.html">
 <meta property="og:site_name" content="Davie个人博客">
+<meta property="og:description" content="@author：Davie版权所有：北京千锋互联科技有限公司 数据请求方式的分类所有的项目中使用的请求都遵循HTTP协议标准，HTTP协议经过了1.0和1.1两个版本的发展。   HTTP1.0定义了三种请求方法： GET, POST 和 HEAD方法。 HTTP1.1新增了五种请求方法：OPTIONS, PUT, DELETE, TRACE 和 CONNECT 方法。  因此，我们可以说，HTT">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-04-16T06:52:08.681Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Davie个人博客">
+<meta name="twitter:title" content="Get、Post、Put等请求及数据返回格式">
+<meta name="twitter:description" content="@author：Davie版权所有：北京千锋互联科技有限公司 数据请求方式的分类所有的项目中使用的请求都遵循HTTP协议标准，HTTP协议经过了1.0和1.1两个版本的发展。   HTTP1.0定义了三种请求方法： GET, POST 和 HEAD方法。 HTTP1.1新增了五种请求方法：OPTIONS, PUT, DELETE, TRACE 和 CONNECT 方法。  因此，我们可以说，HTT">
   
     <link rel="alternative" href="/atom.xml" title="Davie个人博客" type="application/atom+xml">
   
@@ -150,16 +155,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-Get、Post、Put等请求及数据返回格式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-Get、Post、Put等请求及数据返回格式" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/04/16/Get、Post、Put等请求及数据返回格式/">Get、Post、Put等请求及数据返回格式</a>
+    <h1 class="article-title" itemprop="name">
+      Get、Post、Put等请求及数据返回格式
     </h1>
   
 
@@ -179,11 +182,69 @@
 <li>HTTP1.1新增了五种请求方法：OPTIONS, PUT, DELETE, TRACE 和 CONNECT 方法。</li>
 </ul>
 <p>因此，我们可以说，HTTP协议一共定义了八种方法用来对Request-URI网络资源的不同操作方式，这些操作具体为：GET、POST、PUT、DELETE、HEAD、OPTIONS、TRACE、CONNECT等八种操作方式。  </p>
-        
-          <a class="article-more-a" href="/2019/04/16/Get、Post、Put等请求及数据返回格式/#more">more >></a>
-        
+<a id="more"></a>
+<h3 id="Iris框架的请求处理方式"><a href="#Iris框架的请求处理方式" class="headerlink" title="Iris框架的请求处理方式"></a>Iris框架的请求处理方式</h3><ul>
+<li><p>1、Iris框架中服务实例app中包含多个方法，用来支持对上述HTTP多种请求类型的直接处理，直接定义为get方法、post方法、put方法等，app中包含的自动处理路由请求的方法与http请求类型的分类一致。</p>
+</li>
+<li><p>2、除了上述1中自动处理各类别的请求外，框架还支持使用通用的Handle方法来自定义编写自己的请求处理类型及对应的方法。  </p>
+</li>
+</ul>
+<p>两种路由请求的处理方式示例如下：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">app := iris.New()</span><br><span class="line"></span><br><span class="line">//url: http://localhost:8000/getRequest</span><br><span class="line">//type：GET请求</span><br><span class="line">app.Get(&quot;/getRequest&quot;, func(context context.Context) &#123;</span><br><span class="line">		path := context.Path()</span><br><span class="line">		app.Logger().Info(path)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">//url: http://localhost:/user/info</span><br><span class="line">//type：POST请求</span><br><span class="line">app.Handle(&quot;POST&quot;, &quot;/user/info&quot;, func(context context.Context) &#123;</span><br><span class="line">		context.WriteString(&quot; User Info is Post Request , Deal is in handle func &quot;)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">//启动端口监听服务</span><br><span class="line">app.Run(iris.Addr(&quot;:8000&quot;))</span><br></pre></td></tr></table></figure>
+<h4 id="GET请求"><a href="#GET请求" class="headerlink" title="GET请求"></a>GET请求</h4><p>向特定的网络资源数据发起请求。GET请求可以携带请求数据，携带的请求数据会以？分割URL和传输数据，参数之间以&amp;相连，比如<a href="http://localhost:3000?name=davie&amp;pwd=123。" target="_blank" rel="noopener">http://localhost:3000?name=davie&amp;pwd=123。</a><br>如下是一个http的get类型的请求：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://localhost:8000/userpath</span><br></pre></td></tr></table></figure>
+<p>服务端的路由处理方式如下：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">//url：http://localhost:8000/userpath</span><br><span class="line">//type：GET请求、用GET方法处理</span><br><span class="line">app.Get(&quot;/userpath&quot;, func(context context.Context) &#123;</span><br><span class="line"></span><br><span class="line">		//获取Path</span><br><span class="line">		path := context.Path()</span><br><span class="line">		//日志输出</span><br><span class="line">		app.Logger().Info(path)</span><br><span class="line">		//写入返回数据：string类型</span><br><span class="line">		context.WriteString(&quot;请求路径：&quot; + path)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>上述为使用已经封装的默认的app.Get方式来处理请求，使用Handle方法来进行处理，如下所示：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//url：http://localhost:8000/hello</span><br><span class="line">//type：GET请求、Handle方法第一个参数为GET，表明是GET请求方式</span><br><span class="line">app.Handle(&quot;GET&quot;, &quot;/hello&quot;, func(context context.Context) &#123;</span><br><span class="line">		context.HTML(&quot;&lt;h1&gt; Hello world. &lt;/h1&gt;&quot;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="POST请求"><a href="#POST请求" class="headerlink" title="POST请求"></a>POST请求</h4><p>POST请求在进行请求时会将请求数据放在请求body中进行请求，请求数据大小没有限制。在开发过程中，我们使用postman工具来进行POST请求的调试。<br>POST请求的示例如下所示：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://localhost:8000/postLogin</span><br></pre></td></tr></table></figure>
+<p>服务端的路由处理方式如下：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">//type：POST请求</span><br><span class="line">//携带数据：name、pwd命名的请求数据</span><br><span class="line">app.Post(&quot;/postLogin&quot;, func(context context.Context) &#123;</span><br><span class="line">		//获取请求path</span><br><span class="line">		path := context.Path()</span><br><span class="line">		//日志</span><br><span class="line">		app.Logger().Info(path)</span><br><span class="line">		//获取请求数据字段</span><br><span class="line">		name := context.PostValue(&quot;name&quot;)</span><br><span class="line">		pwd, err := context.PostValueInt(&quot;pwd&quot;)</span><br><span class="line">		if err != nil &#123;</span><br><span class="line">			panic(err.Error())</span><br><span class="line">		&#125;</span><br><span class="line">		app.Logger().Info(name, &quot;  &quot;, pwd)</span><br><span class="line">		//返回</span><br><span class="line">		context.HTML(name)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>上述为使用默认路由请求方法Post方法来进行处理，同时，还可以使用Handle方法来进行处理，如下图： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//url：http://localhost:8000/user/info</span><br><span class="line">//type：POST请求，Handle方法第一个参数为POST，表明是Post请求</span><br><span class="line">app.Handle(&quot;POST&quot;, &quot;/user/info&quot;, func(context context.Context) &#123;</span><br><span class="line">		context.WriteString(&quot; User Info is Post Request , Deal is in handle func &quot;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="PUT、DELETE、OPTIONS、HEAD等其他类型请求"><a href="#PUT、DELETE、OPTIONS、HEAD等其他类型请求" class="headerlink" title="PUT、DELETE、OPTIONS、HEAD等其他类型请求"></a>PUT、DELETE、OPTIONS、HEAD等其他类型请求</h4><p>除了上述GET、POST最为常见的两种请求方式以外，还有PUT、DELETE、OPTIONS、HEAD等其他类型请求，对于其他类型的请求，如同GET和POST请求一样，都是可以通过两种方式来进行处理：  </p>
+<ul>
+<li><p>1、iris框架提供的自动识别请求类型的处理请求方法，如put方法、head方法、options方法、delete方法等</p>
+</li>
+<li><p>2、使用通用的Handle方法对路由请求进行处理，开发者自己选择具体的请求类型以、对应url和要进行处理的func。  </p>
+</li>
+</ul>
+<p>如下是put和delete的请求处理：<br><strong>PUT请求</strong> </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//type：PUT类型请求</span><br><span class="line">app.Put(&quot;/putinfo&quot;, func(context context.Context) &#123;</span><br><span class="line">		path := context.Path()</span><br><span class="line">		app.Logger().Info(&quot;请求url：&quot;, path)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p><strong>DELETE请求</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//type：DELETE类型请求  </span><br><span class="line">app.Delete(&quot;/deleteuser&quot;, func(context context.Context) &#123;</span><br><span class="line">		path := context.Path()</span><br><span class="line">		app.Logger().Info(&quot;Delete请求url：&quot;, path)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="请求处理的数据格式返回"><a href="#请求处理的数据格式返回" class="headerlink" title="请求处理的数据格式返回"></a>请求处理的数据格式返回</h3><p>在本节课程中，我们已经学习了如何对不同类型的请求进行处理以及如何获取请求所携带的数据，当后台接收到请求后，将会对请求进行处理，处理完毕后将数据返回给请求的客户端。接下来，我们看一看如何将数据进行返回，以及都有哪些形式。  </p>
+<p>在进行请求处理时，处理方法func有一个参数context。Context是用于处理请求的上下文环境变量，用于处理http请求及相关数据返回。iris框架支持多种数据格式的返回，此处我们学习掌握返回string、json、xml以及html格式的数据。</p>
+<h4 id="返回string类型数据"><a href="#返回string类型数据" class="headerlink" title="返回string类型数据"></a>返回string类型数据</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">context.WriteString(&quot;hello world&quot;)</span><br><span class="line">``` </span><br><span class="line"> </span><br><span class="line">#### 返回json格式的数据</span><br></pre></td></tr></table></figure>
+<p>context.JSON(iris.Map{“message”: “hello word”, “requestCode”: 200})<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### 返回xml格式的数据</span><br></pre></td></tr></table></figure></p>
+<p>context.XML(Person{Name: “Davie”, Age: 18})<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### 返回html格式数据</span><br></pre></td></tr></table></figure></p>
+<p>context.HTML(“</p><h1> Davie, 12 </h1>“)<br><code>`</code><p></p>
+<p>通过本节课的内容，我们学习了iris框架中的不同类型的数据请求以及返回不同的数据格式。</p>
+
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -203,16 +264,75 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/04/16/Get、Post、Put等请求及数据返回格式/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://www.davieyu.cn/2019/04/16/Get、Post、Put等请求及数据返回格式/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2019/04/16/GoWeb开发-Iris框架/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">GoWeb开发_Iris框架</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -232,227 +352,14 @@
 
 
 
-
   
-    <article id="post-GoWeb开发-Iris框架" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/04/16/GoWeb开发-Iris框架/">GoWeb开发_Iris框架</a>
-    </h1>
   
 
-        
-        <a href="/2019/04/16/GoWeb开发-Iris框架/" class="archive-article-date">
-  	<time datetime="2019-04-16T06:47:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>@author：Davie</strong><br><strong>版权所有：北京千锋互联科技有限公司</strong></p>
-<h3 id="Golang介绍"><a href="#Golang介绍" class="headerlink" title="Golang介绍"></a>Golang介绍</h3><p>Go语言是谷歌推出的一种全新的编程语言，可以在不损失应用程序性能的情况下降低代码的复杂性。谷歌首席软件工程师罗布派克(Rob Pike)说：我们之所以开发Go，是因为过去10多年间软件开发的难度令人沮丧。<br>谷歌资深软件工程师罗布·派克(Rob Pike)表示，“Go让我体验到了从未有过的开发效率。”派克表示，和今天的C++或C一样，Go是一种系统语言。他解释道，“使用它可以进行快速开发，同时它还是一个真正的编译语言，我们之所以现在将其开源，原因是我们认为它已经非常有用和强大。”  </p>
-        
-          <a class="article-more-a" href="/2019/04/16/GoWeb开发-Iris框架/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/04/16/GoWeb开发-Iris框架/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-WEB项目开发及实战项目介绍" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/04/16/WEB项目开发及实战项目介绍/">WEB项目开发及实战项目介绍</a>
-    </h1>
   
 
-        
-        <a href="/2019/04/16/WEB项目开发及实战项目介绍/" class="archive-article-date">
-  	<time datetime="2019-04-16T06:42:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>@author：Davie</strong><br><strong>版权所有：北京千锋互联科技有限公司</strong></p>
-<h3 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h3><p>本系列课程我们将学些Golang语言中的Web开发框架Iris的相关知识和用法。通过本系列视频课程，大家能够从零到一经历一个完整项目的开发，并在课程中了解实战项目开发的流程和项目设涉及的各个模块。</p>
-<h3 id="Web项目开发介绍"><a href="#Web项目开发介绍" class="headerlink" title="Web项目开发介绍"></a>Web项目开发介绍</h3><ul>
-<li><p>项目架构  </p>
-<p>  web项目从大的功能上可以分为前台和后台两个部分。前台主要是我们在浏览器中或者桌面应用、Android、iOS移动应用等直接面向用户的程序，直接接受用户的操作和使用，我们称之为前台，也称之为客户端；为前台应用提供数据和功能调用的部署运行在服务器上的程序，用于操作处理前端应用的数据，我们称之为后台，也称之为服务端。类似于上述这种客户端和服务端的架构，我们通常称之为CS模式，C为client的缩写，S为server的缩写。 </p>
-</li>
-</ul>
-        
-          <a class="article-more-a" href="/2019/04/16/WEB项目开发及实战项目介绍/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">WEB开发 实战项目 Golang开发</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/04/16/WEB项目开发及实战项目介绍/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/04/16/hello-world/">Hello World</a>
-    </h1>
   
 
-        
-        <a href="/2019/04/16/hello-world/" class="archive-article-date">
-  	<time datetime="2019-04-16T06:32:21.134Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/04/16/hello-world/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
 
 
@@ -475,8 +382,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
