@@ -6,15 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://www.davieyu.cn">
-  <title>Archives: 2019 | Davie个人博客</title>
+  <title>GoWeb开发_Iris框架 | Davie个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Davie个人博客">
-<meta property="og:url" content="http://www.davieyu.cn/archives/2019/index.html">
+  <meta name="description" content="@author：Davie版权所有：北京千锋互联科技有限公司 Golang介绍Go语言是谷歌推出的一种全新的编程语言，可以在不损失应用程序性能的情况下降低代码的复杂性。谷歌首席软件工程师罗布派克(Rob Pike)说：我们之所以开发Go，是因为过去10多年间软件开发的难度令人沮丧。谷歌资深软件工程师罗布·派克(Rob Pike)表示，“Go让我体验到了从未有过的开发效率。”派克表示，和今天的C++">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GoWeb开发_Iris框架">
+<meta property="og:url" content="http://www.davieyu.cn/2019/04/16/GoWeb开发-Iris框架/index.html">
 <meta property="og:site_name" content="Davie个人博客">
+<meta property="og:description" content="@author：Davie版权所有：北京千锋互联科技有限公司 Golang介绍Go语言是谷歌推出的一种全新的编程语言，可以在不损失应用程序性能的情况下降低代码的复杂性。谷歌首席软件工程师罗布派克(Rob Pike)说：我们之所以开发Go，是因为过去10多年间软件开发的难度令人沮丧。谷歌资深软件工程师罗布·派克(Rob Pike)表示，“Go让我体验到了从未有过的开发效率。”派克表示，和今天的C++">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="http://7xtcwd.com1.z0.glb.clouddn.com/Go语言性能对比.png">
+<meta property="og:image" content="http://7xtcwd.com1.z0.glb.clouddn.com/Go语言web框架对比.png">
+<meta property="og:image" content="http://7xtcwd.com1.z0.glb.clouddn.com/Iris源码结构.png">
+<meta property="og:updated_time" content="2019-04-16T06:47:43.422Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Davie个人博客">
+<meta name="twitter:title" content="GoWeb开发_Iris框架">
+<meta name="twitter:description" content="@author：Davie版权所有：北京千锋互联科技有限公司 Golang介绍Go语言是谷歌推出的一种全新的编程语言，可以在不损失应用程序性能的情况下降低代码的复杂性。谷歌首席软件工程师罗布派克(Rob Pike)说：我们之所以开发Go，是因为过去10多年间软件开发的难度令人沮丧。谷歌资深软件工程师罗布·派克(Rob Pike)表示，“Go让我体验到了从未有过的开发效率。”派克表示，和今天的C++">
+<meta name="twitter:image" content="http://7xtcwd.com1.z0.glb.clouddn.com/Go语言性能对比.png">
   
     <link rel="alternative" href="/atom.xml" title="Davie个人博客" type="application/atom+xml">
   
@@ -150,114 +158,194 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-GoWeb开发-Iris框架" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      GoWeb开发_Iris框架
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/04/16/GoWeb开发-Iris框架/" class="archive-article-date">
+
+        
+        <a href="/2019/04/16/GoWeb开发-Iris框架/" class="archive-article-date">
   	<time datetime="2019-04-16T06:47:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-16</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/04/16/GoWeb开发-Iris框架/">GoWeb开发_Iris框架</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>@author：Davie</strong><br><strong>版权所有：北京千锋互联科技有限公司</strong></p>
+<h3 id="Golang介绍"><a href="#Golang介绍" class="headerlink" title="Golang介绍"></a>Golang介绍</h3><p>Go语言是谷歌推出的一种全新的编程语言，可以在不损失应用程序性能的情况下降低代码的复杂性。谷歌首席软件工程师罗布派克(Rob Pike)说：我们之所以开发Go，是因为过去10多年间软件开发的难度令人沮丧。<br>谷歌资深软件工程师罗布·派克(Rob Pike)表示，“Go让我体验到了从未有过的开发效率。”派克表示，和今天的C++或C一样，Go是一种系统语言。他解释道，“使用它可以进行快速开发，同时它还是一个真正的编译语言，我们之所以现在将其开源，原因是我们认为它已经非常有用和强大。”  </p>
+<a id="more"></a>
+<p>Golang语言的一些的功能：  </p>
+<ul>
+<li>具有现代的程序语言特色，如垃圾回收，帮助程序设计师处理琐碎和重要的内存管理等问题。Go的速度也非常快，几乎和C或C++程序一样快，且能够快速制作程序。</li>
+<li>该软件是专为构建服务器软件所设计（如Google的Gmail），Google认为Go还可应用到其他领域，包括在浏览器内执行软件，取代JavaScript的角色。  </li>
+<li>Go也可解决现今的一大挑战：多核心处理器。一般电脑程序通常依序执行，一次进行一项工作，但多核心处理器更适合并行处理许多工作。</li>
+</ul>
+<p>相较于其他语言，Golang之所以发展迅速，与该语言特有的特色密不可分：  </p>
+<ul>
+<li>简洁 快速 安全</li>
+<li>并行 有趣 开源</li>
+<li>内存管理，数组安全，编译迅速</li>
+</ul>
+<h3 id="Iris简介"><a href="#Iris简介" class="headerlink" title="Iris简介"></a>Iris简介</h3><p>Iris是一款Go语言中用来开发web应用的框架，该框架支持编写一次并在任何地方以最小的机器功率运行，如Android、ios、Linux和Windows等。该框架只需要一个可执行的服务就可以在平台上运行了。  </p>
+<p>Iris框架以简单而强大的api而被开发者所熟悉。iris除了为开发者提供非常简单的访问方式外，还同样支持MVC。另外，用iris构建微服务也很容易。  </p>
+<p>在iris框架的官方网站上，被称为速度最快的Go后端开发框架。在Iris的网站文档上，列出了该框架具备的一些特点和框架特性，列举如下：  </p>
+<p>1）聚焦高性能<br>2）健壮的静态路由支持和通配符子域名支持<br>3）视图系统支持超过5以上模板<br>4）支持定制事件的高可扩展性Websocket API<br>5）带有GC, 内存 &amp; redis 提供支持的会话<br>6）方便的中间件和插件<br>7）完整 REST API<br>8）能定制 HTTP 错误<br>9）源码改变后自动加载<br>等等还有很多特性，大家可以参考Iris官方文档。在GoWeb开发的诸多框架中，各个维度的性能比较如下：</p>
+<p> <img src="http://7xtcwd.com1.z0.glb.clouddn.com/Go语言性能对比.png" alt="Iris与其他语言的框架性能对比"></p>
+<p> <img src="http://7xtcwd.com1.z0.glb.clouddn.com/Go语言web框架对比.png" alt="GoWeb各框架开发效率对比"></p>
+<h3 id="Iris框架学习渠道"><a href="#Iris框架学习渠道" class="headerlink" title="Iris框架学习渠道"></a>Iris框架学习渠道</h3><p>在学习Iris框架过程时，我们需要有相应的配套资料才能够完成我们的学习。下面是学习Iris框架过程中可能会用到的资料。  </p>
+<p>1) Iris官网：<a href="https://iris-go.com/" target="_blank" rel="noopener">https://iris-go.com/</a><br>2) Iris框架源码地址：<a href="https://github.com/kataras/iris" target="_blank" rel="noopener">https://github.com/kataras/iris</a><br>3) Iris框架中文学习文档： <a href="https://studyiris.com/doc/" target="_blank" rel="noopener">https://studyiris.com/doc/</a> </p>
+<p>当然，还有其他相关资料，比如说xorm框架等，这些我们在后面的课程文档中学习到以后再做解释和说明。  </p>
+<h3 id="Iris框架安装"><a href="#Iris框架安装" class="headerlink" title="Iris框架安装"></a>Iris框架安装</h3><p><strong>环境要求：</strong>iris框架要求golang版本至少为1.8。各位同学可以通过打开终端，执行：go version 命令来查看自己机器的go环境版本。 </p>
+<p>安装Iris框架非常简单，使用go语言的全局安装第三方代码的命令get即可。安装Iris框架的命令如下：    </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">go get -u github.com/kataras/iris</span><br></pre></td></tr></table></figure>
+<p>在本地终端中执行如上的安装命令，等待命令执行成功，即表示Iris源码下载安装完成。安装完成Iris框架以后，能够在本地机器的GoPath环境目录中的src/github.com/目录下找到iris框架对应的包名，如下图所示：  </p>
+<p><img src="http://7xtcwd.com1.z0.glb.clouddn.com/Iris源码结构.png" alt="Iris框架源码安装图片"></p>
+<p>如图所示的kataras/iris所在的目录就是iris框架的源码，如上图所示即是安装成功。  </p>
+<h3 id="源码案例"><a href="#源码案例" class="headerlink" title="源码案例"></a>源码案例</h3><p>在iris源码安装完成以后，iris框架为开发者提供了自己学习的实战案例，供开发者自行学习。iris提供的案例在iris框架目录中的_example目录下，在学习时可以进行参考。</p>
+<p>接下来我们就可以开始学习iris的相关内容，进行代码开发了。</p>
+<h3 id="Iris构造服务实例"><a href="#Iris构造服务实例" class="headerlink" title="Iris构造服务实例"></a>Iris构造服务实例</h3><p>在安装完成Iris的源码后，我们就开始来编写最简单的一个Iris的服务。在Iris中，构建并运行一个服务实例需要两步：  </p>
+<ul>
+<li>1、通过iris.New()方法可以实例化一个应用服务对象app  </li>
+<li>2、通过Run方法开启端口监听服务，运行服务实例</li>
+</ul>
+<p>如下是一个最简单的服务案例Demo</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">package main</span><br><span class="line"></span><br><span class="line">import &quot;github.com/kataras/iris&quot;</span><br><span class="line"></span><br><span class="line">func main() &#123;</span><br><span class="line">	//1.创建app结构体对象</span><br><span class="line">	app := iris.New()</span><br><span class="line">	//2.端口监听</span><br><span class="line">	app.Run(iris.Addr(&quot;:7999&quot;), iris.WithoutServerError(iris.ErrServerClosed))</span><br><span class="line"></span><br><span class="line">	////application.Run(iris.Addr(&quot;:8080&quot;))//第一种</span><br><span class="line">	//application.Run(iris.Addr(&quot;:8080&quot;), iris.WithoutServerError(iris.ErrServerClosed)) //第二种</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://www.davieyu.cn/2019/04/16/GoWeb开发-Iris框架/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/04/16/WEB项目开发及实战项目介绍/" class="archive-article-date">
-  	<time datetime="2019-04-16T06:42:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-16</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/04/16/WEB项目开发及实战项目介绍/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">WEB项目开发及实战项目介绍</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/04/16/WEB项目开发及实战项目介绍/">WEB项目开发及实战项目介绍</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">WEB开发 实战项目 Golang开发</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/04/16/hello-world/" class="archive-article-date">
-  	<time datetime="2019-04-16T06:32:21.134Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/04/16/hello-world/">Hello World</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
 
 
           </div>
@@ -280,8 +368,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
